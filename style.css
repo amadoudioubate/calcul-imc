@@ -5,22 +5,32 @@
 }
 
 body {
-    background: rgb(21, 18, 210);
-    height: 100vh;
+    min-height: 100vh;
+    font-family: Lato, Helvetica, sans-serif;
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    padding: clamp(20px, 5vw, 50px) 10px 10px;
 }
 
 .container-imc {
-    background: #eee;
+    /* background: #eee;
     width: 99%;
     margin: 20px auto;
     padding: 20px;
+    border-radius: 5px; */
+    background: #f1f1f1;
+    border: 1px solid #36363692;
+    padding: 25px;
+    margin: 0 auto;
     border-radius: 5px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.3);
 }
 
 .imc-title {
+    font-family: Raleway, sans-serif;
+    font-size: 40px;
     text-align: center;
-    margin-bottom: 10px;
-    font-size: 20px;
+    margin-bottom: 40px;
+    font-weight: 400;
 }
 
 .imc-title span {
@@ -35,28 +45,48 @@ body {
 
 .form-group input {
     width: 100%;
-    padding: 5px 10px;
     outline:none;
-    margin-bottom: 15px;
-    font-size: 16px;
-}
-.container-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.btn {
-    padding: 10px 15px;
-    border:none;
-    border-radius: 6px;
-    outline: none;
     font-size: 18px;
-    background: rgb(249, 167, 13);
+    padding: 15px;
+    margin-bottom: 25px;
+    border: none;
+    border-bottom: 1px solid #333333;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+.btn {
+    font-size: 20px;
+    min-width: 200px;
+    margin: 40px auto;
+    display: block;
+    padding: 10px;
+    border: none;
+    font-weight: 700;
+    border-radius: 5px;
+    color: #333;
     cursor: pointer;
-    transition: opacity 0.2s ease-in-out; 
+    background: #fabe33;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.5);
+    transition: all 0.2s ease-in-out;
 }
 
 .btn:hover {
-    opacity: 0.9;
+    background: #f2b527;;
+}
+
+.imc-info {
+    text-align: center;
+}
+
+.info-result {
+    font-size: 45px;
+    margin-bottom: 5px;
+    font-weight: bolder;
+}
+
+.info-message {
+    font-family: Raleway, sans-serif;
+    font-size: 20px;
 }
 
