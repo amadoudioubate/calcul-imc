@@ -21,7 +21,6 @@ const inputs = document.querySelectorAll('input');
 function handleForm(e) {
     e.preventDefault();
     
-    
     calculBIM();
 }
 
@@ -36,6 +35,8 @@ function calculBIM() {
     }
 
     const BMI = (weight / Math.pow(height / 100, 2)).toFixed(1);
+    console.log(BMI)
+    
     showResult(BMI)
 }
 
@@ -43,8 +44,18 @@ const displayInfoBMI = document.querySelector('.info-imc');
 const infoResult = document.querySelector('.info-result');
 
 function handleError() {
-    displayInfoBMI.textContext = 'Wops !';
+    displayInfoBMI.textContent = 'Wops !';
     displayInfoBMI.style.color = 'inherit';
-    infoResult.textContext = 'Remplissez correctement les inputs.';
+    infoResult.textContent = 'Remplissez correctement les inputs.';
 }
 
+function showResult(BMI) {
+    const rank = BMIData.find(data => {
+        if(BMI >= data.range[0] && BMI < data.range[1]) return data;
+        else if(typeof(data.range === 'number') && BMI >= data.range) return data;
+    });
+
+    displayInfoBMI.textContent = BMI;
+    displayInfoBMI.style.color = `${rank.color}`;
+    infoResult.textContent = `Resultat : ${rank.name}`;
+}
