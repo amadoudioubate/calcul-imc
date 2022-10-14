@@ -11,20 +11,40 @@ const BMIData = [
 
 const form = document.querySelector('.imc-form');
 
-
 form.addEventListener('submit', handleForm);
 
+const inputs = document.querySelectorAll('input');
+
+/**
+ * Function pour envoyer le formulaire, prend en paramètre évènement
+ */
 function handleForm(e) {
     e.preventDefault();
-
-    calculBMI()
+    
+    
+    calculBIM();
 }
 
-const inputs = document.querySelectorAll('input')
-function calculBMI() {
+
+function calculBIM() {
     const height = inputs[0].value;
     const weight = inputs[1].value;
+    
+    if(!height || !weight || height <= 0 || weight <= 0){
+        handleError();
+        return;
+    }
 
-    console.log(height)
-    console.log(weight)
+    const BMI = (weight / Math.pow(height / 100, 2)).toFixed(1);
+    showResult(BMI)
 }
+
+const displayInfoBMI = document.querySelector('.info-imc');
+const infoResult = document.querySelector('.info-result');
+
+function handleError() {
+    displayInfoBMI.textContext = 'Wops !';
+    displayInfoBMI.style.color = 'inherit';
+    infoResult.textContext = 'Remplissez correctement les inputs.';
+}
+
